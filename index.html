@@ -5,212 +5,88 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cyber Fetch Downloader</title>
-
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
-    font-family: Arial, sans-serif;
-    background: #080d18;
-    color: white;
-    min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #080d18;
+  color: white;
+  text-align: center;
 }
-
 header {
-    padding: 25px;
-    text-align: center;
-    background: #101a2e;
-    border-bottom: 1px solid #263653;
+  padding: 25px;
+  background: #111827;
 }
-
-.logo {
-    font-size: 27px;
-    font-weight: bold;
-    color: #00e5ff;
-}
-
-header p {
-    color: #aab8d0;
-    margin-top: 8px;
-}
-
+h1 { color: #38bdf8; }
 main {
-    max-width: 650px;
-    margin: 80px auto;
-    padding: 25px;
-    text-align: center;
+  max-width: 750px;
+  margin: 60px auto;
+  padding: 25px;
 }
-
-h1 {
-    font-size: 36px;
-    margin-bottom: 15px;
+p {
+  color: #cbd5e1;
+  line-height: 1.8;
 }
-
-h1 span {
-    color: #00e5ff;
-}
-
-.description {
-    color: #aab8d0;
-    line-height: 1.7;
-    margin-bottom: 30px;
-}
-
-.download-box {
-    background: #111d32;
-    padding: 25px;
-    border-radius: 15px;
-    border: 1px solid #263c5d;
-}
-
-input {
-    width: 100%;
-    padding: 16px;
-    border-radius: 9px;
-    border: 1px solid #405573;
-    background: #080d18;
-    color: white;
-    font-size: 15px;
-    outline: none;
-    margin-bottom: 15px;
-}
-
 button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 9px;
-    background: #00d9ee;
-    color: #07111e;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
+  background: #e11d48;
+  color: white;
+  border: 0;
+  padding: 14px 28px;
+  border-radius: 8px;
+  cursor: pointer;
 }
-
-button:hover {
-    background: #00bcd4;
-}
-
-#message {
-    margin-top: 18px;
-    line-height: 1.6;
-    color: #00e5ff;
-}
-
-.features {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.feature {
-    background: #111d32;
-    padding: 15px;
-    border-radius: 10px;
-    color: #c4d3e9;
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    color: #8292ac;
-    font-size: 13px;
-}
-
+.links { margin-top: 50px; }
 a {
-    color: #00e5ff;
+  color: #38bdf8;
+  margin: 12px;
+}
+footer {
+  padding: 25px;
+  color: #94a3b8;
 }
 </style>
 </head>
-
 <body>
 
 <header>
-    <div class="logo">⚡ CYBER FETCH</div>
-    <p>Smart Video Link Assistant</p>
+  <h1>Cyber Fetch Downloader</h1>
+  <p>Simple and User-Friendly Video Management</p>
 </header>
 
 <main>
+  <h2>Welcome to Cyber Fetch Downloader</h2>
 
-    <h1>Cyber <span>Fetch</span> Downloader</h1>
+  <p>
+    Cyber Fetch Downloader is a user-friendly application
+    designed to help users manage video links and content
+    efficiently.
+  </p>
 
-    <p class="description">
-        Paste a TikTok video link below to get started.
-        Simple, clean and user-friendly interface.
-    </p>
+  <h2>Our Features</h2>
+  <p>
+    Easy-to-use interface<br>
+    Simple link management<br>
+    User-friendly experience<br>
+    Secure and transparent functionality
+  </p>
 
-    <div class="download-box">
+  <h2>About Our App</h2>
+  <p>
+    We aim to provide a simple and reliable experience.
+    Our application does not ask users for their TikTok
+    passwords.
+  </p>
 
-        <input
-            type="url"
-            id="videoUrl"
-            placeholder="Paste TikTok video URL here..."
-        >
-
-        <button onclick="processLink()">
-            Fetch Video Link ⚡
-        </button>
-
-        <div id="message"></div>
-
-    </div>
-
-    <div class="features">
-        <div class="feature">⚡ Easy to Use</div>
-        <div class="feature">🔗 Link Validation</div>
-        <div class="feature">📱 Mobile Friendly</div>
-    </div>
-
+  <div class="links">
+    <a href="terms.md">Terms of Service</a>
+    <a href="privacy.md">Privacy Policy</a>
+  </div>
 </main>
 
 <footer>
-    <p>© 2026 Cyber Fetch Downloader</p>
-    <p>
-        <a href="privacy.md">Privacy Policy</a> |
-        <a href="terms.md">Terms of Service</a>
-    </p>
+  © 2026 Cyber Fetch Downloader. All rights reserved.
 </footer>
-
-<script>
-function processLink() {
-
-    const url = document.getElementById("videoUrl").value.trim();
-    const message = document.getElementById("message");
-
-    if (!url) {
-        message.textContent = "Please paste a video URL first.";
-        return;
-    }
-
-    try {
-        const parsed = new URL(url);
-
-        const valid =
-            parsed.protocol === "https:" &&
-            (
-                parsed.hostname === "tiktok.com" ||
-                parsed.hostname.endsWith(".tiktok.com")
-            );
-
-        if (!valid) {
-            message.textContent = "Please enter a valid TikTok URL.";
-            return;
-        }
-
-        message.textContent =
-            "Valid TikTok link received. Connect an authorized backend to process videos.";
-
-    } catch (error) {
-        message.textContent = "Invalid URL. Please try again.";
-    }
-}
-</script>
 
 </body>
 </html>
